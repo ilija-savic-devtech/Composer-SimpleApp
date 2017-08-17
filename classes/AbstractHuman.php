@@ -18,8 +18,7 @@ abstract class AbstractHuman
     }
 
     /**
-     * Setter for name
-     * @param mixed $name
+     * @param $name
      * @return $this
      */
     public function setName($name)

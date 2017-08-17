@@ -8,9 +8,4 @@ interface HumanInterface{
      */
     public function role();
 
-    /**
-     * Displaying name and surname
-     * @return mixed
-     */
-    public function printNameAndSurname();
 }

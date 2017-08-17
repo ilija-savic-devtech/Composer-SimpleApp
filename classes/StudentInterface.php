@@ -10,11 +10,6 @@ interface StudentInterface
      */
     public function studying();
 
-    /**
-     * Displaying index number and average
-     * @return mixed
-     */
-    public function indexAndAverage();
 
 }
 

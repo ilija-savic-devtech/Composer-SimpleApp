@@ -8,46 +8,38 @@ $klein = new \Klein\Klein();
 //Handler for errors
 $klein->onHttpError(function ($code) use ($twig) {
     if ($code >= 400 && $code < 500) {
-        echo $twig->render('error.html', array(
+        echo $twig->render('error.twig', array(
             'code' => $code
         ));
     }
 });
 
 //Homepage mapping
-$klein->respond('/', function() use ($twig){
-    echo $twig->render('home.html');
+$klein->respond('/', function () use ($twig) {
+    echo $twig->render('home.twig');
 });
 
 //Student mapping
-$klein->respond('/student', function() use ($twig){
-   $student = new \classes\Student();
-   $student->setName("Petar")->setSurname("Petrovic")->setAverage("8.3")->setIndexNo(456123);
-   $twig->render('student.html', array(
-       'role' => $student->role(),
-       'nameAndSurname' => $student->printNameAndSurname(),
-       'indexAndAverage' => $student->indexAndAverage(),
-       'studying' => $student->studying()
-   ));
+$klein->respond('/student', function () use ($twig) {
+    $student = new \classes\Student();
+    $student->setName("Petar")->setSurname("Petrovic")->setAverage("8.3")->setIndexNo(456123);
+    echo $twig->render('student.twig', array(
+        'student' => $student));
 });
 
 //Professor mapping
-$klein->respond('/professor', function() use($twig){
-   $professor = new \classes\Professor();
-   $professor->setName("Marko")->setSurname("Markovic")->setNumberOfScientificWork(4)->setSubject("Data Science");
-   $twig->render('professor.html', array(
-        'role' => $professor->role(),
-        'nameAndSurname' => $professor->printNameAndSurname(),
-        'indexAndAverage' => $professor->noOfScientificWorkAndSubject(),
-        'studying' => $professor->questioning()
-    ));
+$klein->respond('/professor', function () use ($twig) {
+    $professor = new \classes\Professor();
+    $professor->setName("Marko")->setSurname("Markovic")->setNumberOfScientificWork(4)->setSubject("Data Science");
+    echo $twig->render('professor.twig', array(
+        'professor' => $professor));
 });
 
 //Student with id mapping
-$klein->respond('/student/[i:id]', function($request) use($twig){
-   echo $twig->render('studentId.html', array(
-      'id' => $request->id
-   ));
+$klein->respond('/student/[i:id]', function ($request) use ($twig) {
+    echo $twig->render('studentId.twig', array(
+        'id' => $request->id
+    ));
 });
 
 $klein->dispatch();

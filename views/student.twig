@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block title %}Student{% endblock %}
+{% block content %}
+    <h1><center>{{ student.role() }}</center></h1><br>
+    Name: {{ student.name }}<br>
+    Surname: {{ student.surName }}<br>
+    Index number: {{ student.indexNo }}<br>
+    Average: {{ student.average }}<br>
+    {{ student.studying() }}
+{% endblock %}

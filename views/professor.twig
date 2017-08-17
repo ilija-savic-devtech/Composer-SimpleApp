@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block title %}Professor{% endblock %}
+{% block content %}
+    <h1><center>{{ professor.role() }}</center></h1><br>
+    Name: {{ professor.name }}<br>
+    Surname: {{ professor.surName }}<br>
+    Number of scientific work: {{ professor.numberOfScientificWork }}<br>
+    Subject: {{ professor.subject }}<br>
+    {{ professor.questioning() }}
+{% endblock %}

@@ -49,33 +49,19 @@ class Student extends AbstractHuman implements StudentInterface, HumanInterface
     }
 
     /**
-     * Printing out student action
+     * @return string
+     */
+    public function role(){
+        return "I am student";
+    }
+
+
+    /**
+     * @return string
      */
     public function studying()
     {
-        echo "Student is studying!!!";
-    }
-
-    /**
-     * Printing out role of Student class
-     */
-    public function role()
-    {
-        echo "<h1><center>I am STUDENT!!!</center></h1><br>";
-    }
-
-    /**
-     * Printing out name and surname parameters of Student class
-     */
-    public function printNameAndSurname(){
-        echo "Name: " . $this->getName() . "<br>Surname: " . $this->getSurname() . "<br>";
-    }
-
-    /**
-     * Printing out index number and average of Student class
-     */
-    public function indexAndAverage(){
-        echo "Index number: " . $this->getIndexNo() . "<br> Average: " . $this->getAverage() . "<br>";
+        return "Student studying!!!";
     }
 
 }
